@@ -327,7 +327,7 @@ public class BlockState implements BlockStateHolder<BlockState>, Pattern {
     public <V> V getState(final Property<V> property) {
         try {
             AbstractProperty<V> ap = (AbstractProperty<V>) property;
-            return (V) ap.getValue(this.getInternalId());
+            return (V) ap.getValueFor(this.getNbtId());
         } catch (ClassCastException e) {
             throw new IllegalArgumentException("Property not found: " + property);
         } catch (Exception e) {
